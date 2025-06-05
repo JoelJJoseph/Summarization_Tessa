@@ -2,4 +2,5 @@ Flask
 Werkzeug
 requests
 streamlit
-gemini_api  
+gemini_api 
+PyPDF2
