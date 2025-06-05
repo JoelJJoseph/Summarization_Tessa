@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Release Note Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .glassmorphic {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hover-light::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(90deg, #78FAAA, #7D5FEB, #142644);
+            background-size: 300%;
+            z-index: -1;
+            transition: all 0.5s ease;
+            border-radius: 8px;
+        }
+        .hover-light:hover::before {
+            left: 0;
+        }
+    </style>
+</head>
+<body class="bg-[#0b1120] text-white font-['Roboto']">
+    <header class="glassmorphic hover-light flex justify-center items-center p-6 transition duration-300 ease-in-out">
+        <div class="text-2xl font-bold" style="color: #142644;">Tenthpin</div>
+    </header>
+    <main class="text-center mt-20">
+        <h1 class="text-5xl font-bold mt-4">Release Note Summary and Analysis</h1>
+        <div class="mt-8 mx-auto w-4/5">
+            <h2 class="text-2xl font-bold mb-4">Generated Summary and Analysis:</h2>
+            <div class="text-left">
+                {{ summary|safe }}
+            </div>
+            {% if table_html %}
+                <h2 class="text-2xl font-bold mt-8 mb-4">Tabular Representation:</h2>
+                <div class="overflow-x-auto">
+                    {{ table_html|safe }}
+                </div>
+            {% endif %}
+        </div>
+    </main>
+    <button class="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>
