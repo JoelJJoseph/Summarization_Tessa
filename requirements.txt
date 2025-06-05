@@ -5,3 +5,4 @@ streamlit
 gemini_api 
 PyPDF2
 dotenv
+markdown
